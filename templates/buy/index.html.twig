@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buy index{% endblock %}
+
+{% block body %}
+    <h1>Buy index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>BuyAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for buy in buys %}
+            <tr>
+                <td>{{ buy.id }}</td>
+                <td>{{ buy.buyAt ? buy.buyAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_buy_show', {'id': buy.id}) }}">show</a>
+                    <a href="{{ path('app_buy_edit', {'id': buy.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_buy_new') }}">Create new</a>
+{% endblock %}

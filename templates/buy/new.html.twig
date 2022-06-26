@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Buy{% endblock %}
+
+{% block body %}
+    <h1>Create new Buy</h1>
+
+    {{ include('buy/_form.html.twig') }}
+
+    <a href="{{ path('app_buy_index') }}">back to list</a>
+{% endblock %}

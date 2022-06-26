@@ -1,0 +1,25 @@
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link
+    />
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<nav>
+    <a href="#">Автомагазин</a>
+    <ul>
+        {% if app.user %}
+            <li><a href="{{ path('app_logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Login</a></li>
+            <li><a href="{{ path('registration') }}">Registration</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% block body %}{% endblock %}{% block javascripts %}{% endblock %}
+</body>
+</html>

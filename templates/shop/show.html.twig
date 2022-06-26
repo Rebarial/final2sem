@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buy{% endblock %}
+
+{% block body %}
+    <h2 style="color: #7abaff">Balance: {{ balance }}</h2>
+    <h1>Buy</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ buy.id }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ buy.user }}</td>
+            </tr>
+            <tr>
+                <th>BuyAt</th>
+                <td>{{ buy.buyAt ? buy.buyAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            {% for products in products %}
+                <tr>
+                    <th>Product</th>
+                    <td>{{ products|e }}</td>
+                    <td><a href="{{ path('app_delitem', {'id': products.id}) }}">удалить</a></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <th>SumPrice</th>
+                <td>{{ sumPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="netu" style="pointer-events: none">Купить</a>
+    <a href="{{ path('app_shop') }}">Вернуться</a>
+
+{% endblock %}
