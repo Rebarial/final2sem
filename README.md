@@ -1,5 +1,4 @@
 # FinalProject
-http://164.92.172.224:7771/shop
 
 Сущности:
 Car,
